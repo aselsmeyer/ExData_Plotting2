@@ -20,12 +20,11 @@ if(!exists("SCC")){
 SCC <- readRDS("Source_Classification_Code.rds")
 }
 
-# aggregate emissions in Baltimore City,
-totalEmissionsByYear <- aggregate(Emissions ~ year, NEI, sum)
+# aggregate emissions in Baltimore City, Maryland (fips == "24510") from 1999-2008
+totalEmissionsByYearBaltimore <- aggregate(Emissions ~ year, NEI[NEI$fips == "24510",], sum)
 
 # Create png file
+barplot(height = totalEmissionsByYearBaltimore$Emissions, names.arg = totalEmissionsByYearBaltimore$year, xlab = "years", ylab = expression('Total PM'[2.5]*' Emission'), main = expression('Total PM'[2.5]*' in Baltimore City, MD by Year'))
 
-barplot(height = totalEmissionsByYear$Emissions, names.arg = totalEmissionsByYear$year, xlab = "years", ylab = expression('Total PM'[2.5]*' Emission'), main = expression('Total PM'[2.5]*' by Year'))
-
-dev.copy(png, file = "plot1.png")
+dev.copy(png, file = "plot2.png")
 dev.off()
