@@ -22,9 +22,9 @@ SCC <- readRDS("Source_Classification_Code.rds")
 }
 
 # Merge datasets
-if(!exists("mergeNEISCC")) {
-        mergeNEISCC <- merge(NEI, SCC, by = "SCC")
-}
+#if(!exists("mergeNEISCC")) {
+#        mergeNEISCC <- merge(NEI, SCC, by = "SCC")
+#}
 
 totalEmissionsByYear <- aggregate(Emissions ~ year, NEI[NEI$fips == "24510" & NEI$type == "ON-ROAD",], sum)
 
