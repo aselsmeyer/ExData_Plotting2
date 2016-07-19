@@ -39,6 +39,6 @@ p5 <- g + geom_bar(stat = "identity") +
         ggtitle('Total Emissions From Motor Vehicle Sources in Baltimore City, MD (1999-2008)')
 
 # Print plot
-print(p4)
+print(p5)
 
 dev.off()
